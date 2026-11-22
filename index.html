@@ -251,6 +251,15 @@ p{text-wrap:pretty}
 .case__media{border-radius:var(--r);overflow:hidden;border:1px solid var(--line-d);background:#fff;box-shadow:0 30px 60px -30px rgba(0,0,0,.7);transform:translateY(calc(var(--m,0) * 1px))}
 .case__media--second{width:72%;margin:-14% 0 0 auto;position:relative}
 
+.handit{display:none;position:relative;align-items:center;gap:12px;height:58px;padding:0 24px 0 8px;border:0;border-radius:999px;background:var(--lime);color:var(--ink);font:600 17px/1 var(--text);box-shadow:0 10px 24px -10px rgba(14,15,12,.55);cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:transform .14s var(--ease),background-color .2s var(--ease),color .2s var(--ease)}
+.handit::before{content:"";flex:none;width:42px;height:42px;border-radius:50%;background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C6F432' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 19V5M6 11l6-6 6 6'/%3E%3C/svg%3E") center/20px no-repeat;transition:transform .35s var(--ease)}
+.handit::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--lime);opacity:0;pointer-events:none}
+.handit:active{transform:scale(.96)}
+.handit.is-nudge::after{animation:halo 1.1s var(--ease) 3}
+@keyframes halo{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.18,1.5)}}
+.case.is-handed .handit{background:var(--surface-d);color:var(--cream);box-shadow:inset 0 0 0 1.5px rgba(198,244,50,.5)}
+.case.is-handed .handit::before{transform:rotate(180deg)}
+
 /* ---------- about ---------- */
 .about .side-l{display:flex;justify-content:flex-end}
 .about figure{width:min(100%,440px)}
@@ -369,6 +378,58 @@ p{text-wrap:pretty}
 }
 @media (max-width:860px) and (max-height:700px){ .subject{height:40vh} }
 
+/* ---------- phones, touch pass: the line runs across, the dark side wipes up ---------- */
+@media (max-width:860px){
+  .hero{height:150vh;height:150svh}
+  .hero__stage{background:var(--cream)}
+  .hero__stage::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(calc(var(--hs,50) * 1svh));will-change:transform}
+  .hero__stage::after{content:"";position:absolute;left:0;right:0;top:-1px;height:3px;background:var(--lime);transform:translateY(calc(var(--hs,50) * 1svh));transform-origin:0 50%;z-index:2;will-change:transform;animation:drawx .9s var(--ease) .15s both}
+  @keyframes drawx{from{scale:0 1}}
+  .plate--l{height:50%}
+  .plate--r{top:0;height:100%;transform:translateY(calc(var(--hs,50) * 1svh))}
+  .plate--r img{top:4%}
+  .ghost{display:block;top:0;bottom:auto;left:var(--gut);right:auto;margin:0;font-family:var(--text);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;-webkit-text-stroke:0;z-index:3}
+  .ghost--l{color:var(--soft);transform:translateY(calc(var(--hs,50) * 1svh - 24px))}
+  .ghost--r{display:none}
+  .subject{right:-20vw;height:min(55svh,520px);filter:none}
+  .hook{font-size:clamp(34px,9.9vw,54px)}
+  .hero__pain{top:calc(9.9vw * 3.1 + 86px)}
+  .pain{font-size:clamp(25px,7.4vw,30px);gap:0 14px}
+  .pain .w::after{height:3px}
+  .hero__pitch p{text-shadow:0 1px 14px rgba(14,15,12,.95),0 0 2px rgba(14,15,12,.8)}
+  .hero__done{text-shadow:0 1px 10px rgba(14,15,12,.9)}
+
+  .conveyor{height:150vh;height:150svh}
+  .conveyor__stage{background:linear-gradient(180deg,var(--cream) 50%,var(--ink) 50%)}
+  .conveyor__stage::after{content:"";position:absolute;left:0;right:0;top:50%;height:3px;margin-top:-1.5px;background:var(--lime);z-index:1}
+  .conveyor__head{display:block;padding:0}
+  .conveyor__head .side-l,.conveyor__head .side-r{position:absolute;left:0;right:0;padding-inline:var(--gut)!important}
+  .conveyor__head .side-l{top:66px}
+  .conveyor__head .side-r{top:auto;bottom:22px}
+  .conveyor__head p{font-size:14px;margin-top:6px}
+  .conveyor__track{top:0;bottom:0;z-index:2}
+  .chip{left:var(--gut);right:var(--gut);width:auto;height:9.4%;min-height:66px;transform:translate(var(--tx,0px),var(--ty,0px)) rotate(var(--tr,0deg))}
+  .chip:nth-child(1){top:19%}.chip:nth-child(2){top:29.4%}.chip:nth-child(3){top:39.8%}
+  .chip__face{padding:8px 16px}
+  .chip__face b{font-size:16px}
+  .chip__face span{font-size:13px}
+  .chip__neat{padding-left:58px}
+  .chip__neat i{left:14px;width:30px;height:30px;margin-top:-15px}
+  .chip__neat i::after{left:9px;top:9px;width:11px;height:6px}
+
+  .case__cover{transform-origin:50% 100%;transform:scaleY(var(--c,0))}
+  .grip,.grip-hint{display:none}
+  .grip-wrap{height:auto;margin-top:30px}
+  .handit{display:inline-flex}
+
+  .close{height:150vh;height:150svh}
+  .close__sweep{display:block;width:auto;right:0;height:11%;transform:translateY(calc(var(--sw,2000) * 1px))}
+  .close__inner{bottom:100px}
+  .foot{bottom:8px;gap:0 22px;align-items:center}
+  .foot a{display:inline-flex;align-items:center;min-height:44px}
+  .close__ctas .cv{display:inline-flex;align-items:center;min-height:48px;padding-inline:4px}
+}
+
 /* ---------- reduced motion: same composition, no travel ---------- */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -384,6 +445,19 @@ p{text-wrap:pretty}
   .conveyor__track{position:relative;inset:auto;height:360px;margin-top:40px}
   .close__sweep{display:none}
   .hub__jobs li.is-on,.grip-hint.is-hinting,.case.is-done .case__ring,.close.is-arrived .close__ctas .btn--lime{animation:none}
+}
+@media (prefers-reduced-motion:reduce) and (max-width:860px){
+  .hero__stage{min-height:100svh}
+  .hero__stage::after{animation:none}
+  .conveyor__stage{padding-bottom:0}
+  .conveyor__track{height:auto;display:grid;gap:12px;padding:0 var(--gut) 40px;margin-top:0}
+  .conveyor__head .side-l,.conveyor__head .side-r{position:relative;top:auto;padding-block:72px 24px}
+  .conveyor__head .side-l{padding-top:84px}
+  .conveyor__stage{background:var(--cream)}
+  .conveyor__head .side-r,.conveyor__track{background:var(--ink)}
+  .conveyor__stage::after{display:none}
+  .chip{position:relative;left:auto;right:auto;top:auto!important;height:76px;transform:none}
+  .handit.is-nudge::after{animation:none}
 }
 </style>
 </head>
@@ -517,7 +591,7 @@ p{text-wrap:pretty}
 <section class="section work" id="work" aria-labelledby="work-h">
   <div class="split sec-head work-head">
     <div class="side-l"><h2 id="work-h">Some of the projects</h2><p>Built for the research office at Babcock University, and for my own systems.</p></div>
-    <div class="side-r"><h2 aria-hidden="true">I'm <em>proud</em> of.</h2><p>Real builds with their real status. Pull the handle on each one to hand the job over.</p></div>
+    <div class="side-r"><h2 aria-hidden="true">I'm <em>proud</em> of.</h2><p>Real builds with their real status. Hand each job over and see what the system does with it.</p></div>
   </div>
 <!-- PROJECTS:START (generated from data/projects.json, do not edit by hand) -->
 <article class="case case--lead" id="personal-assistant" data-case>
@@ -534,6 +608,7 @@ p{text-wrap:pretty}
       <div class="grip-wrap">
         <span class="grip-hint" aria-hidden="true">Drag to hand it over</span>
         <input class="grip" type="range" min="0" max="100" value="100" aria-label="Hand Personal AI Assistant (Nod + n8n) over to the system">
+        <button class="handit" type="button" aria-pressed="false" aria-label="Hand Personal AI Assistant (Nod + n8n) over to the system"><span>Hand it over</span></button>
       </div>
     </div>
   </div>
@@ -568,6 +643,7 @@ p{text-wrap:pretty}
       <div class="grip-wrap">
         <span class="grip-hint" aria-hidden="true">Drag to hand it over</span>
         <input class="grip" type="range" min="0" max="100" value="100" aria-label="Hand ICTR-LD 2026 certificate system over to the system">
+        <button class="handit" type="button" aria-pressed="false" aria-label="Hand ICTR-LD 2026 certificate system over to the system"><span>Hand it over</span></button>
       </div>
     </div>
   </div>
@@ -598,6 +674,7 @@ p{text-wrap:pretty}
       <div class="grip-wrap">
         <span class="grip-hint" aria-hidden="true">Drag to hand it over</span>
         <input class="grip" type="range" min="0" max="100" value="100" aria-label="Hand RIIC certificate automation in n8n over to the system">
+        <button class="handit" type="button" aria-pressed="false" aria-label="Hand RIIC certificate automation in n8n over to the system"><span>Hand it over</span></button>
       </div>
     </div>
   </div>
@@ -628,6 +705,7 @@ p{text-wrap:pretty}
       <div class="grip-wrap">
         <span class="grip-hint" aria-hidden="true">Drag to hand it over</span>
         <input class="grip" type="range" min="0" max="100" value="100" aria-label="Hand Inbox Agent v1 over to the system">
+        <button class="handit" type="button" aria-pressed="false" aria-label="Hand Inbox Agent v1 over to the system"><span>Hand it over</span></button>
       </div>
     </div>
   </div>
@@ -658,6 +736,7 @@ p{text-wrap:pretty}
       <div class="grip-wrap">
         <span class="grip-hint" aria-hidden="true">Drag to hand it over</span>
         <input class="grip" type="range" min="0" max="100" value="100" aria-label="Hand RIIC AI Research Agent over to the system">
+        <button class="handit" type="button" aria-pressed="false" aria-label="Hand RIIC AI Research Agent over to the system"><span>Hand it over</span></button>
       </div>
     </div>
   </div>
@@ -782,8 +861,18 @@ p{text-wrap:pretty}
 
   /* ---------- conveyor: sample tasks cross the line and come out neat ---------- */
   let tw = 0, cw = 0;
-  const measureTrack = () => { tw = track.clientWidth; cw = chips[0].offsetWidth; };
-  const conveyor = (q) => chips.forEach((c, i) => {
+  let th = 0, ch = 0, tops = [];
+  const measureTrack = () => { tw = track.clientWidth; cw = chips[0].offsetWidth; th = track.clientHeight; ch = chips[0].offsetHeight; tops = chips.map((c) => c.offsetTop); };
+  const conveyorPhone = (q) => chips.forEach((c, i) => {
+    // phone: the cards drop through the horizontal line, top (by hand) to bottom (automated)
+    const f = reduce.matches ? 1 : clamp((q - .04 - (2 - i) * .16) / .42), e = easeInOut(f); // the card nearest the line goes first
+    const ty = reduce.matches ? 0 : th * .34 * e, centre = tops[i] + ty + ch / 2;
+    const n = reduce.matches ? 1 : clamp((centre - th * .5 + ch * .55) / (ch * 1.1));
+    setv(c, '--ty', ty.toFixed(1) + 'px'); setv(c, '--tx', (reduce.matches ? 0 : Math.sin(f * Math.PI) * [-10, 12, -8][i] * (1 - n)).toFixed(1) + 'px');
+    setv(c, '--tr', (reduce.matches ? 0 : (1 - e) * [-4, 3, -3][i]).toFixed(2) + 'deg');
+    setv(c, '--n', n.toFixed(3)); setv(c, '--tk', back(clamp((n - .5) / .5)).toFixed(3));
+  });
+  const conveyor = (q) => phone.matches ? conveyorPhone(q) : chips.forEach((c, i) => {
     const f = reduce.matches ? 1 : clamp((q - .1 - i * .14) / .5), e = easeInOut(f);
     const x0 = phone.matches ? tw * .03 : tw * .07, x1 = phone.matches ? tw * .53 : tw * .62;
     const x = lerp(x0, x1, e), centre = x + cw / 2;
@@ -796,17 +885,19 @@ p{text-wrap:pretty}
   let hinted = false;
   const cases = $$('[data-case]').map((el) => {
     const grip = el.querySelector('.grip'), hint = el.querySelector('.grip-hint'), media = $$('.case__media', el);
-    const k = { el, grip, hint, media, anim: 0, done: false, seen: false, jobs: $$('.hub__jobs li', el), lines: $$('.hub__lines line', el) };
+    const k = { el, grip, hint, media, anim: 0, done: false, seen: false, auto: false, btn: el.querySelector('.handit'), manual: el.querySelector('.case__manual'), hub: el.querySelector('.hub'), jobs: $$('.hub__jobs li', el), lines: $$('.hub__lines line', el) };
     k.set = () => {
       const c = 1 - grip.value / 100, h = clamp((c - .6) / .32);
       setv(el, '--pf', clamp(1 - (c - .3) / .28).toFixed(3));
       setv(el, '--c', c.toFixed(3)); setv(el, '--h', h.toFixed(3));
       setv(el, '--hp', back(h).toFixed(3)); setv(el, '--tk', back(clamp((c - .82) / .18)).toFixed(3));
       el.classList.toggle('is-moving', c > .02);
-      k.jobs.forEach((j, i) => { const on = c > (i + 1) / (k.jobs.length + 1.2); j.classList.toggle('is-on', on); if (k.lines[i]) k.lines[i].classList.toggle('is-on', on); });
+      if (!phone.matches) k.jobs.forEach((j, i) => { const on = c > (i + 1) / (k.jobs.length + 1.2); j.classList.toggle('is-on', on); if (k.lines[i]) k.lines[i].classList.toggle('is-on', on); });
       if (k.jobs.length) setv(el, '--hc', (1 + .08 * Math.sin(Math.PI * clamp(c / .985))).toFixed(3));
       const isDone = c > .985;
       if (isDone && !k.done) { el.classList.remove('is-done'); void el.offsetWidth; el.classList.add('is-done'); navigator.vibrate?.(8); }
+      if (isDone !== k.done && k.btn) { k.btn.setAttribute('aria-pressed', isDone); k.btn.firstChild.textContent = isDone ? 'Replay' : 'Hand it over'; }
+      el.classList.toggle('is-handed', isDone);
       k.done = isDone;
     };
     k.to = (v, ms = 380, then) => {
@@ -824,11 +915,17 @@ p{text-wrap:pretty}
     };
     grip.addEventListener('pointerup', release); grip.addEventListener('pointercancel', release); grip.addEventListener('change', release);
     grip.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.classList.add('is-touched'); k.to(+grip.value > 50 ? 0 : 100, 520); } });
+    // phone: one big tap target instead of a drag that fights the vertical swipe
+    k.btn?.addEventListener('click', () => {
+      el.classList.add('is-touched'); k.btn.classList.remove('is-nudge'); k.auto = true;
+      if (k.done) k.to(100, 260, () => setTimeout(() => k.to(0, 650), 140)); else k.to(0, 650);
+    });
     k.set();
     return k;
   });
   const hintCase = (k) => {
     if (reduce.matches || k.seen || k.el.classList.contains('is-touched')) return; k.seen = true;
+    if (phone.matches) { k.btn.classList.add('is-nudge'); return; }
     if (!hinted) { // first case: a full hint, so people discover the drag
       hinted = true; k.hint.classList.add('is-hinting');
       k.to(56, 700, () => setTimeout(() => { if (!k.el.classList.contains('is-touched')) k.to(100, 600, () => k.hint.classList.remove('is-hinting')); }, 650));
@@ -851,28 +948,38 @@ p{text-wrap:pretty}
       const p = rm ? 0 : span(hero);
       setv(hero, '--p', p.toFixed(4)); heroWords(rm ? 1 : p);
       setv(done, '--done', (rm ? 1 : clamp((p - .82) / .12)).toFixed(3));
+      if (phone.matches) setv(hero, '--hs', (rm ? 50 : lerp(50, 42, easeInOut(clamp(p / .85)))).toFixed(2));
     }
     const cr = conv.getBoundingClientRect();
     if (cr.top < vh && cr.bottom > 0) conveyor(rm ? 1 : span(conv));
     // close: collapse, lime sweep, lines rise, button pops
-    const raw = rm ? 1 : span(close);
-    const e = rm ? 1 : easeInOut(clamp((raw - .08) / .62));
+    const raw = rm ? 1 : span(close), ph = phone.matches;
+    // phone: shorter pin, so the payoff lands in a couple of swipes
+    const e = rm ? 1 : easeInOut(clamp(ph ? raw / .5 : (raw - .08) / .62));
     setv(close, '--e', e.toFixed(4));
-    if (sweep) setv(sweep, '--sw', (lerp(-.36, 1.02, clamp((raw - .5) / .3)) * vw).toFixed(0));
-    closeLines.forEach((l, i) => setv(l, '--l', (rm ? 1 : easeOut(clamp((raw - .55 - i * .07) / .25))).toFixed(3)));
-    close.classList.toggle('is-arrived', raw > .9);
+    if (sweep) setv(sweep, '--sw', ph ? (lerp(1.02, -.2, clamp((raw - .12) / .38)) * vh).toFixed(0) : (lerp(-.36, 1.02, clamp((raw - .5) / .3)) * vw).toFixed(0));
+    closeLines.forEach((l, i) => setv(l, '--l', (rm ? 1 : easeOut(clamp(ph ? (raw - .2 - i * .08) / .25 : (raw - .55 - i * .07) / .25))).toFixed(3)));
+    close.classList.toggle('is-arrived', raw > (ph ? .6 : .9));
     const closeTop = close.getBoundingClientRect().top, inClose = closeTop <= 1;
     const dx = vw / 2 * (1 - (inClose ? e : 0));
     setv(divider, '--dx', dx + 'px');
     // the line hides while a full-width ground passes under it
     divider.style.opacity = (closeTop < vh && !inClose) || (rm && closeTop < vh * .5) ? 0 : 1;
     setv(chrome, '--cx', Math.max(dx, chrome.offsetWidth / 2 + 16) + 'px');
+    if (phone.matches) cases.forEach((k) => {
+      const r = k.manual.getBoundingClientRect();
+      if (!rm && !k.auto && r.top < vh && r.bottom > 0 && r.top + r.height * .5 < vh * .34) { k.auto = true; k.btn.classList.remove('is-nudge'); if (!k.done) k.to(0, 700); }
+      if (k.hub) { const hr2 = k.hub.getBoundingClientRect(); if (hr2.top < vh && hr2.bottom > 0) { const t = rm ? 1 : clamp((vh * .9 - hr2.top) / (hr2.height * .8));
+        k.jobs.forEach((j, i) => { const on = t > (i + 1) / (k.jobs.length + 1); if (on !== j.classList.contains('is-on')) { j.classList.toggle('is-on', on); k.lines[i]?.classList.toggle('is-on', on); } });
+        setv(k.el, '--hc', (1 + .08 * Math.sin(Math.PI * t)).toFixed(3)); } }
+    });
     if (!rm) cases.forEach((k) => k.media.forEach((m, j) => { const r = m.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) return; const c = (r.top + r.height / 2 - vh / 2) / vh; setv(m, '--m', (c * (j ? -40 : 18)).toFixed(1)); }));
   };
   const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
   const remeasure = () => { measure(); measureTrack(); req(); };
   addEventListener('scroll', req, { passive: true });
   addEventListener('resize', remeasure);
+  phone.addEventListener?.('change', () => { cases.forEach((k) => k.set()); remeasure(); });
   reduce.addEventListener?.('change', remeasure);
   document.fonts?.ready.then(remeasure);
   remeasure(); frame();
