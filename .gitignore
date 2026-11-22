@@ -1,0 +1,5 @@
+# local tooling and verification output, never deployed
+lab/
+node_modules/
+BRIEF.md
+.DS_Store

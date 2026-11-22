@@ -1,0 +1,165 @@
+{
+  "_readme": "Source of truth for the 'projects I'm proud of' section. Edit this file, then run: node tools/render-projects.mjs . It rewrites the block between PROJECTS:START and PROJECTS:END in index.html. tag must be Deterministic, AI or Hybrid. Never add numbers that no source backs up.",
+  "projects": [
+    {
+      "id": "personal-assistant",
+      "featured": true,
+      "title": "Personal AI Assistant (Nod + n8n)",
+      "context": "My own system",
+      "tag": "Hybrid",
+      "status": "Live",
+      "statusNote": "Running locally on my machine.",
+      "problem": "Inbox, calendar, memos, newsletters, Drive, bookkeeping, and knowing what today looks like. Small jobs, but together they eat the day.",
+      "built": [
+        "A personal AI assistant built with Nod and n8n: an AI agent plus n8n workflows.",
+        "It handles the inbox, calendar, memos, newsletters, Drive and bookkeeping, and puts together a morning briefing.",
+        "It runs locally on my own machine."
+      ],
+      "stack": [
+        "Nod",
+        "n8n"
+      ],
+      "result": "Live and still working, running locally on my machine.",
+      "handover": "Seven jobs. One assistant.",
+      "hub": {
+        "centre": "Assistant",
+        "jobs": [
+          "Inbox",
+          "Calendar",
+          "Memos",
+          "Newsletters",
+          "Drive",
+          "Bookkeeping",
+          "Morning briefing"
+        ]
+      }
+    },
+    {
+      "id": "ictr-certificates",
+      "title": "ICTR-LD 2026 certificate system",
+      "context": "For RIIC, Babcock University. Nov 2026",
+      "tag": "Deterministic",
+      "status": "Live",
+      "statusNote": "Form and personal links are live.",
+      "problem": "One Google Form link for a whole conference. Someone forwards it to a WhatsApp group, strangers fill it, people submit twice, and somebody ends up copying emails one by one to send certificates.",
+      "built": [
+        "Every participant gets a unique 8-character access code and a personal link with the code already filled in, emailed to them by name.",
+        "Each submission is checked the moment it lands: valid, duplicate, or not on the list. Forwarded links get caught.",
+        "The certificate step is built: verified responses fill the Slides template, which is exported to PDF, saved to Drive and set up to email.",
+        "Built to be safe to rerun. It skips anyone already handled and picks up after the Apps Script time limit. Nothing goes out until a person runs it."
+      ],
+      "stack": [
+        "Google Apps Script",
+        "Sheets",
+        "Forms",
+        "Slides",
+        "Drive",
+        "Gmail"
+      ],
+      "result": "Used live for the ICTR-LD 2026 conference. The form and personal links are live, verified responses come back into one sheet, and only people with a valid code get through.",
+      "handover": "Only real participants get through.",
+      "media": [
+        {
+          "src": "assets/work-certificate.webp",
+          "w": 1000,
+          "h": 707,
+          "alt": "A sample ICTR-LD 2026 certificate of participation from the template. The participant's name is blurred."
+        },
+        {
+          "src": "assets/work-apps-script.webp",
+          "w": 1100,
+          "h": 565,
+          "alt": "The Apps Script code that creates the certificate form and personal access codes."
+        }
+      ]
+    },
+    {
+      "id": "riic-n8n-certificates",
+      "title": "RIIC certificate automation in n8n",
+      "context": "For a RIIC workshop with 400+ participants",
+      "tag": "Deterministic",
+      "status": "Live",
+      "statusNote": "Delivered. Full 400+ run completed.",
+      "problem": "A workshop with 400+ participants, and every one of them needs a personalised certificate. Typing names into a template, saving PDFs and emailing them one at a time takes days.",
+      "built": [
+        "Reads the participant list and drops each name into a Google Slides certificate template.",
+        "Turns every certificate into a PDF and emails it to the right person through Gmail.",
+        "Keeps the files in Google Drive so the office can find any certificate later."
+      ],
+      "stack": [
+        "n8n",
+        "Google Slides",
+        "Gmail",
+        "Google Drive"
+      ],
+      "result": "Delivered. The full 400+ run went through end to end, and nobody typed a single name.",
+      "handover": "No names typed by hand.",
+      "steps": [
+        "Participant list",
+        "Slides template",
+        "PDF",
+        "Gmail"
+      ]
+    },
+    {
+      "id": "inbox-agent",
+      "title": "Inbox Agent v1",
+      "context": "My own build, shared in public. Nov 2026",
+      "tag": "Hybrid",
+      "status": "Built, partly tested",
+      "statusNote": "Meeting path tested end to end.",
+      "problem": "A business inbox mixes meetings, payments, spam and real questions. Important mail gets buried, replies are slow, and nobody can say what came in this week.",
+      "built": [
+        "AI classifies every email into 8 categories: Meeting, Payment, Spam, Inquiry, Support, Personal, Urgent, Other.",
+        "Rules do the rest: each email gets labelled and logged, and meetings are booked straight into Google Calendar.",
+        "An AI agent drafts human-sounding replies from a FAQ knowledge base.",
+        "Nothing is sent without approval."
+      ],
+      "stack": [
+        "n8n (self-hosted)",
+        "Docker",
+        "Gmail",
+        "Google Calendar",
+        "DeepSeek",
+        "Cloudflare Tunnel"
+      ],
+      "result": "The meeting path ran green end to end: email in, labelled, calendar event booked, logged. The other paths are next in testing.",
+      "handover": "Sorted, booked, drafted. You approve.",
+      "media": [
+        {
+          "src": "assets/work-inbox-agent.webp",
+          "w": 1634,
+          "h": 647,
+          "alt": "The Inbox Agent workflow in n8n: Gmail trigger, AI email classifier, label nodes per category, calendar booking and the Inbox Boss Agent."
+        }
+      ]
+    },
+    {
+      "id": "research-agent",
+      "title": "RIIC AI Research Agent",
+      "context": "For RIIC, Babcock University",
+      "tag": "AI",
+      "status": "Built",
+      "statusNote": "Built, not yet tested on real office questions",
+      "problem": "Research staff need quick, academic-quality help: finding sources, summarising papers, grant context. Paid research tools cost money the office doesn't want to spend.",
+      "built": [
+        "An AI research assistant built as an n8n AI Agent with a custom academic system prompt.",
+        "It searches the web through Tavily, then answers research questions in a clear academic voice.",
+        "Runs on OpenRouter models."
+      ],
+      "stack": [
+        "n8n AI Agent",
+        "OpenRouter",
+        "Tavily"
+      ],
+      "result": "Built and configured for the RIIC office. Not yet tested on real office questions.",
+      "handover": "Research help without a paid tool.",
+      "steps": [
+        "Question",
+        "Web search",
+        "AI model",
+        "Answer"
+      ]
+    }
+  ]
+}
