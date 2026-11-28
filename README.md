@@ -1,38 +1,17 @@
-# Ayomide Paul · AI automation portfolio
+# Ayomide Ibitoye portfolio, v5
 
-Personal site for Ibitoye Ayomide Paul, AI Automation Specialist (n8n, Google Apps Script, AI agents).
+Static site. No framework, no build step needed to deploy: upload the folder to Vercel as-is.
 
-Plain static site. No build step, no framework, no dependencies.
+## Add a project
+1. Put its images in `assets/work/` (webp, about 1000 to 1400 px wide).
+2. Add an object to `data/projects.json`, copying the fields of an existing project
+   (slug, title, status, client, approach, metaDescription, hook, stack, card, challenge, actions, results, highlights, media, notes).
+3. Run `node tools/build.mjs`. It rewrites `index.html`, `projects/<slug>/index.html` and `sitemap.xml`.
+4. Optional: add `assets/og-<slug>.jpg` (1200x630) for link previews.
 
-## Deploy on Vercel
+Project URLs: `/projects/<slug>` plus the home anchor `/#<slug>`.
 
-1. Import this repo in Vercel.
-2. Framework preset: **Other**. Leave the build command and output directory empty.
-3. Deploy. `index.html` sits at the repo root and is served as is.
-
-`vercel.json` only sets clean URLs and cache headers.
-
-After the first deploy, change the two `og:image` / `twitter:image` tags in `index.html` to the full URL (for example `https://your-domain.vercel.app/assets/og.jpg`) so link previews show the image on X and WhatsApp.
-
-## Files
-
-- `index.html`: the whole page (HTML, CSS and a small script).
-- `assets/`: WebP images, the OG image.
-- `cv.pdf`: the CV behind every "Download CV" button. Replace the file to update it.
-- `favicon.svg`
-- `data/projects.json`: the case studies in "Some of the projects I'm proud of".
-- `tools/render-projects.mjs`: writes `data/projects.json` into `index.html`.
-
-## Update the projects
-
-Edit `data/projects.json`, then run:
-
-```bash
-node tools/render-projects.mjs
-```
-
-It rewrites only the block between `PROJECTS:START` and `PROJECTS:END` in `index.html`. Each project has: title, context, tag (`Deterministic`, `AI` or `Hybrid`), status, problem, what was built, stack, result, the line shown when the handle is dragged, and optional images or steps. Only put numbers in a result if a real source backs them up.
-
-## Contact links
-
-Email, X (https://x.com/_Edimoya) and LinkedIn (https://www.linkedin.com/in/ayomide-ibitoye-b1a594445) appear in the About section, the contact section and the footer. There are matching `rel="me"` links in the `<head>`. Search `index.html` for the URL to change any of them.
+## Add media to the AI OS card
+In `data/projects.json`, replace the `placeholder` item in the `ai-os` media list with
+`{ "type": "image", "src": "/assets/work/...", "w": ..., "h": ..., "alt": "...", "caption": "..." }`, then run the build.
+The first media item is the card image and the lead image on the project page.

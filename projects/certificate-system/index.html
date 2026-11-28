@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-NG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RIIC Certificate System | Ayomide Ibitoye</title>
+<meta name="description" content="One n8n certificate workflow, used for a capacity-building workshop and an international conference, that sent a personalised certificate and message to over 400 participants, with a Google Apps Script verification layer.">
+<link rel="canonical" href="https://ayomide-ibitoye.vercel.app/projects/certificate-system">
+<meta name="theme-color" content="#F4F1EA">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ayomide Ibitoye">
+<meta property="og:title" content="RIIC Certificate System | Ayomide Ibitoye">
+<meta property="og:description" content="One n8n certificate workflow, used for a capacity-building workshop and an international conference, that sent a personalised certificate and message to over 400 participants, with a Google Apps Script verification layer.">
+<meta property="og:url" content="https://ayomide-ibitoye.vercel.app/projects/certificate-system">
+<meta property="og:image" content="https://ayomide-ibitoye.vercel.app/assets/og-certificate-system.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@_Edimoya">
+<meta name="twitter:title" content="RIIC Certificate System | Ayomide Ibitoye">
+<meta name="twitter:description" content="One n8n certificate workflow, used for a capacity-building workshop and an international conference, that sent a personalised certificate and message to over 400 participants, with a Google Apps Script verification layer.">
+<meta name="twitter:image" content="https://ayomide-ibitoye.vercel.app/assets/og-certificate-system.jpg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/bricolage-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"RIIC Certificate System","description":"One n8n certificate workflow, used for a capacity-building workshop and an international conference, that sent a personalised certificate and message to over 400 participants, with a Google Apps Script verification layer.","url":"https://ayomide-ibitoye.vercel.app/projects/certificate-system","author":{"@type":"Person","name":"Ibitoye Ayomide Paul","url":"https://ayomide-ibitoye.vercel.app/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><i aria-hidden="true"></i>Ayomide Ibitoye</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="/#work">Projects</a></li>
+        <li class="opt"><a href="/#events">Events</a></li>
+        <li class="opt"><a href="/#about">About</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--ink" href="mailto:ibitoyeayomide087@gmail.com">Email me</a>
+  </div>
+</header>
+<main id="main">
+<article>
+<header class="p-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="/#work">Projects</a><span aria-hidden="true">/</span><span>02 of 03</span></p>
+    <h1>RIIC Certificate System</h1>
+    <p class="hook">One workflow, two events, a personalised certificate for every participant.</p>
+    <dl class="meta">
+      <div><dt>Status</dt><dd>Used live for two events</dd></div>
+      <div><dt>For</dt><dd>RIIC, a university research and innovation office</dd></div>
+      <div><dt>Approach</dt><dd>Deterministic</dd></div>
+      <div class="stack"><dt>Stack</dt><dd>n8n, Google Apps Script, Google Sheets, Google Forms, Google Slides, Google Drive, Gmail, Canva</dd></div>
+    </dl>
+  </div>
+</header>
+<div class="wrap">
+  <figure style="margin:0"><div class="lead-media"><video controls muted playsinline preload="none" poster="/assets/work/cert-poster.webp" width="960" height="540" aria-label="RIIC Certificate System walkthrough"><source src="/assets/work/cert-walkthrough.mp4" type="video/mp4"></video></div><figcaption>Walkthrough of the certificate workflow (2 min 46 s, about 2 MB). Loads only when you press play.</figcaption></figure>
+  <ul class="hl" aria-label="At a glance"><li>400+ participants</li><li>2 events, 1 workflow</li><li>Valid, duplicate, invalid</li><li>Own error workflow</li></ul>
+  <div class="story">
+    <nav class="rail" aria-label="Sections"><ol><span class="bar" aria-hidden="true"></span><li><a href="#challenge">Challenge</a></li><li><a href="#actions">Actions</a></li><li><a href="#results">Results</a></li></ol></nav>
+    <div>
+      <div class="part" id="challenge" data-reveal><h2><span>Challenge</span>The problem</h2><p>For both the September capacity-building workshop and the ICTR-LD 2026 conference, the office needed to get a personalised certificate and message to every participant. Doing that by hand meant typing names into a template, exporting PDFs and emailing people one by one.</p><p>For the conference, a shared registration link also spread across WhatsApp groups, so the list itself had to be protected.</p></div>
+      <div class="part" id="actions" data-reveal><h2><span>Actions</span>What I built</h2><p>I built one certificate workflow and used it for both events. The Canva certificate template goes into Google Slides. n8n reads each name from a sheet, fills the certificate, saves the file to Drive, and emails the participant a personalised message with their certificate.</p><p>For ICTR-LD, I added a Google Apps Script verification layer across 5 Google services (Sheets, Forms, Slides, Drive, Gmail). It issued unique 8-character access codes to 2 participant groups, emailed each person a prefilled personal link, and sorted every submission into 3 states: valid, duplicate, or invalid. Only verified names went into the certificate run.</p><p>The workflow has its own error workflow, and it was built to be safe to repeat: it skipped anyone already sent.</p></div>
+      <div class="part res" id="results" data-reveal><h2><span>Results</span>Where it stands</h2><p>The same system was used for both events. Each participant received a personalised message and their certificate. It was used for over 400 people.</p><p>Duplicate and invalid conference submissions were stopped before they reached the certificate list.</p></div>
+    </div>
+  </div>
+  <div class="gallery"><figure class="wide" data-reveal><div class="frame"><img src="/assets/work/cert-n8n.webp" alt="n8n workflow named Automated Certificate Generation and Distribution: get rows from a sheet, a JavaScript step, copy file, replace text in a presentation, download file, send a message." width="1200" height="387" loading="lazy" decoding="async"></div><figcaption>The n8n workflow: read the sheet, copy the template, fill the name, export, email.</figcaption></figure><figure class="solo" data-reveal><div class="frame"><img src="/assets/work/cert-template.webp" alt="Google Slides certificate of participation template with a Full Name placeholder, for the capacity-building workshop." width="960" height="540" loading="lazy" decoding="async"></div><figcaption>The certificate template in Google Slides, with the name placeholder n8n fills.</figcaption></figure></div>
+  <div class="notes-wrap" data-reveal><h2>Build notes on X</h2><div class="notes"><a href="https://x.com/_Edimoya/status/2102699046192517296" rel="noopener" target="_blank">Planning post, 23 Sep 2026<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://x.com/_Edimoya/status/2102842100916322334" rel="noopener" target="_blank">First demo, 23 Sep 2026<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://x.com/_Edimoya/status/2103182669706121556" rel="noopener" target="_blank">Walkthrough video, 24 Sep 2026<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div>
+  <a class="next" href="/projects/hangout-registration"><span>Next project</span><strong><em>Event Registration and Ticketing System</em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></strong></a>
+</div>
+</article>
+</main>
+<section class="contact sec" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div data-reveal>
+      <h2 id="contact-title">Got work your team does by hand every week?</h2>
+      <p>Tell me what it is and how it runs today. I'll tell you honestly whether it should be automated, and how.</p>
+    </div>
+    <ul class="links" data-reveal style="--d:.1s">
+      <li><a href="mailto:ibitoyeayomide087@gmail.com"><span>Email<small>ibitoyeayomide087@gmail.com</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><a href="https://www.linkedin.com/in/ayomide-ibitoye-b1a594445" rel="noopener" target="_blank"><span>LinkedIn<small>Ayomide Ibitoye</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><a href="https://x.com/_edimoya" rel="noopener" target="_blank"><span>X<small>@_Edimoya</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><a href="/cv.pdf" download="Ibitoye_Ayomide_Paul_CV.pdf"><span>Download CV<small>PDF, 56 KB</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+    </ul>
+  </div>
+</section>
+<footer class="foot dark">
+  <div class="wrap">
+    <strong>Ibitoye Ayomide Paul</strong>
+    <a href="mailto:ibitoyeayomide087@gmail.com">ibitoyeayomide087@gmail.com</a>
+    <a href="https://www.linkedin.com/in/ayomide-ibitoye-b1a594445" rel="noopener" target="_blank">LinkedIn</a>
+    <a href="https://x.com/_edimoya" rel="noopener" target="_blank">X</a>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

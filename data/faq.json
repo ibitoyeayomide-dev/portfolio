@@ -1,0 +1,8 @@
+[
+  {"q":"What do you build?","a":"AI agents, automated workflows and AI operating systems for teams that lose hours to repetitive work, like sorting an inbox, writing minutes, sending certificates or handling event sign-ups."},
+  {"q":"Which tools do you work with?","a":"n8n, Google Apps Script, Airtable and Google Workspace for the workflows. OpenRouter, DeepSeek and Ollama for the AI. Docker, Cloudflare Tunnel and Vercel to deploy and host it."},
+  {"q":"Will the AI act without my team?","a":"Not on anything that matters. I build so the AI does the sorting and drafting, and a person approves anything that goes out."},
+  {"q":"Do you work remotely?","a":"Yes. I'm open to remote roles and projects with teams anywhere."},
+  {"q":"Are you open to full-time roles?","a":"Yes. I'm open to AI automation roles, contract work and projects, and I'm available from January 2027."},
+  {"q":"How do we get started?","a":"Email me and describe the task that takes up your team's time. I'll reply with how I would automate it."}
+]

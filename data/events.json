@@ -1,0 +1,139 @@
+{
+  "_how": "Add photos to an entry's photos list (file = name in /workspace/portfolio-assets/events/). Run: python3 tools/photos.py && node tools/build.mjs. Entries with hideIfEmpty stay hidden until they have a photo. maxPhotos limits how many show.",
+  "events": [
+    {
+      "id": "ictr-ld-2026",
+      "name": "International Conference on Translational Research on Learning Disabilities / Neurodiversity Innovation 2026 (ICTR-LD)",
+      "when": "Nov 2026",
+      "datetime": "2026-11",
+      "place": "Babcock University",
+      "note": "RIIC organised it with Babcock Innovation & Ventures.",
+      "link": "certificate-system",
+      "photos": [
+        {
+          "file": "3091b3e5f78a0dbdf30a968358f6f8a0763ac9a52236e5791a614c2ea1e5965f.jpg",
+          "alt": "Ayomide in front of the ICTR-LD 2026 conference banner, holding a Neurodiversity Innovation tote bag and wearing a conference lanyard.",
+          "caption": "",
+          "src": "/assets/events/ictr-ld-2026-1.webp",
+          "w": 600,
+          "h": 800
+        },
+        {
+          "file": "b48b47fd6f864e059eb84deee48c97513935a0b417712805ae95d874e06bdbf2.jpg",
+          "alt": "Side view of Ayomide beside the ICTR-LD 2026 Learning Disabilities banner with a Neurodiversity Innovation tote bag.",
+          "caption": "",
+          "src": "/assets/events/ictr-ld-2026-2.webp",
+          "w": 600,
+          "h": 800
+        }
+      ],
+      "groupCaption": "Behind the scenes, I ran registrations, emails and certificates for every participant."
+    },
+    {
+      "id": "itss-ioe-2026",
+      "name": "International Conference 2026 on Intelligent Technology, Systems and Services for Internet of Everything (ITSS-IoE)",
+      "when": "27 to 28 Oct 2026",
+      "datetime": "2026-10-27",
+      "place": "Department of IT, School of Computing, Babcock University",
+      "photos": [
+        {
+          "file": "itss-ioe-2026/IMG_9611.jpg",
+          "alt": "Ayomide standing in front of the full ITSS-IoE 2026 conference banner from the Department of Information Technology, School of Computing, Babcock University.",
+          "caption": "",
+          "src": "/assets/events/itss-ioe-2026-1.webp",
+          "w": 600,
+          "h": 800
+        },
+        {
+          "file": "itss-ioe-2026/IMG_9608.jpg",
+          "alt": "Ayomide smiling in front of the ITSS-IoE 2026 conference banner.",
+          "caption": "",
+          "src": "/assets/events/itss-ioe-2026-2.webp",
+          "w": 600,
+          "h": 800
+        }
+      ]
+    },
+    {
+      "id": "capacity-building-2026",
+      "name": "Capacity Building Workshop",
+      "when": "Sep 2026",
+      "datetime": "2026-09",
+      "place": "RIIC, Babcock University",
+      "note": "I built the certificate system for this workshop.",
+      "link": "certificate-system",
+      "hideIfEmpty": true,
+      "photos": [
+        {
+          "file": "capacity-building-workshop-sep-2026/IMG_1785.jpg",
+          "alt": "Group photo of the Capacity Building Workshop participants on stage, September 2026.",
+          "caption": "",
+          "src": "/assets/events/capacity-building-2026-1.webp",
+          "w": 1067,
+          "h": 800
+        },
+        {
+          "file": "capacity-building-workshop-sep-2026/IMG_1815.jpg",
+          "alt": "Ayomide with a fellow participant on stage at the Capacity Building Workshop.",
+          "caption": "",
+          "src": "/assets/events/capacity-building-2026-2.webp",
+          "w": 600,
+          "h": 800
+        },
+        {
+          "file": "capacity-building-workshop-sep-2026/IMG_1826.jpg",
+          "alt": "Selfie of Ayomide with three other people in a hall decorated with gold drapes.",
+          "caption": "",
+          "src": "/assets/events/capacity-building-2026-3.webp",
+          "w": 1067,
+          "h": 800
+        }
+      ]
+    },
+    {
+      "id": "dit-ict-session-2026",
+      "name": "Digital Innovation Technology group session",
+      "when": "Aug 2026",
+      "datetime": "2026-08",
+      "place": "With an ICT officer from Babcock University",
+      "note": "A talk on what to expect in the world of tech and the areas where we can find and fix problems ourselves.",
+      "hideIfEmpty": true,
+      "photos": [
+        {
+          "file": "cds-tech-session-2026/IMG_0464.jpg",
+          "alt": "Digital Innovation Technology group members outside the BUCODeL building at Babcock University.",
+          "caption": "",
+          "src": "/assets/events/dit-ict-session-2026-1.webp",
+          "w": 1067,
+          "h": 800
+        },
+        {
+          "file": "cds-tech-session-2026/IMG_0449.jpg",
+          "alt": "Digital Innovation Technology group members on the steps with the ICT officer after the session.",
+          "caption": "",
+          "src": "/assets/events/dit-ict-session-2026-2.webp",
+          "w": 1067,
+          "h": 800
+        }
+      ]
+    },
+    {
+      "id": "ai-biv-summit-2026",
+      "name": "AI & BIV Commercialization Summit 2026",
+      "when": "21 to 22 Apr 2026",
+      "datetime": "2026-04-21",
+      "place": "Babcock Innovation & Ventures",
+      "note": "Theme: Building Africa's Venture Architecture.",
+      "photos": [
+        {
+          "file": "ai-biv-summit-2026/IMG_6204.jpg",
+          "alt": "Ayomide standing in front of the AI & BIV Commercialization Summit 2026 banner.",
+          "caption": "",
+          "src": "/assets/events/ai-biv-summit-2026-1.webp",
+          "w": 600,
+          "h": 800
+        }
+      ]
+    }
+  ]
+}

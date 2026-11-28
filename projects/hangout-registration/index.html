@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-NG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Event Registration and Ticketing System | Ayomide Ibitoye</title>
+<meta name="description" content="A paid registration and ticketing system for a social event: Lovable landing page and form, n8n webhooks, Google Drive, Airtable and a personalised day-of message. Over 45 people registered.">
+<link rel="canonical" href="https://ayomide-ibitoye.vercel.app/projects/hangout-registration">
+<meta name="theme-color" content="#F4F1EA">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ayomide Ibitoye">
+<meta property="og:title" content="Event Registration and Ticketing System | Ayomide Ibitoye">
+<meta property="og:description" content="A paid registration and ticketing system for a social event: Lovable landing page and form, n8n webhooks, Google Drive, Airtable and a personalised day-of message. Over 45 people registered.">
+<meta property="og:url" content="https://ayomide-ibitoye.vercel.app/projects/hangout-registration">
+<meta property="og:image" content="https://ayomide-ibitoye.vercel.app/assets/og-hangout-registration.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@_Edimoya">
+<meta name="twitter:title" content="Event Registration and Ticketing System | Ayomide Ibitoye">
+<meta name="twitter:description" content="A paid registration and ticketing system for a social event: Lovable landing page and form, n8n webhooks, Google Drive, Airtable and a personalised day-of message. Over 45 people registered.">
+<meta name="twitter:image" content="https://ayomide-ibitoye.vercel.app/assets/og-hangout-registration.jpg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/bricolage-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Event Registration and Ticketing System","description":"A paid registration and ticketing system for a social event: Lovable landing page and form, n8n webhooks, Google Drive, Airtable and a personalised day-of message. Over 45 people registered.","url":"https://ayomide-ibitoye.vercel.app/projects/hangout-registration","author":{"@type":"Person","name":"Ibitoye Ayomide Paul","url":"https://ayomide-ibitoye.vercel.app/"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><i aria-hidden="true"></i>Ayomide Ibitoye</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="/#work">Projects</a></li>
+        <li class="opt"><a href="/#events">Events</a></li>
+        <li class="opt"><a href="/#about">About</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--ink" href="mailto:ibitoyeayomide087@gmail.com">Email me</a>
+  </div>
+</header>
+<main id="main">
+<article>
+<header class="p-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="/#work">Projects</a><span aria-hidden="true">/</span><span>03 of 03</span></p>
+    <h1>Event Registration and Ticketing System</h1>
+    <p class="hook">Paid registration for a social event, from receipt upload to a personal message on the day.</p>
+    <dl class="meta">
+      <div><dt>Status</dt><dd>Built and used live</dd></div>
+      <div><dt>For</dt><dd>Babcock PPA Corpers Hangout, a social event</dd></div>
+      <div><dt>Approach</dt><dd>Deterministic</dd></div>
+      <div class="stack"><dt>Stack</dt><dd>Lovable, n8n webhooks, Google Drive, Airtable, Email</dd></div>
+    </dl>
+  </div>
+</header>
+<div class="wrap">
+  <figure style="margin:0"><div class="lead-media" style="background:var(--paper)"><img src="/assets/work/hangout-n8n.webp" alt="n8n workflow named Registration Portal: Webhook, Parse Form Data, Save Receipt to Drive, create Airtable Pending Record, Send Registration Pending Email." width="1400" height="530" fetchpriority="high" decoding="async"></div><figcaption>The Registration Portal workflow in n8n: webhook, parse the form, save the receipt to Drive, log a pending Airtable record, send the pending email.</figcaption></figure>
+  <ul class="hl" aria-label="At a glance"><li>45+ registered</li><li>Receipt upload to Drive</li><li>Approval workflow</li><li>Own error workflow</li></ul>
+  <div class="story">
+    <nav class="rail" aria-label="Sections"><ol><span class="bar" aria-hidden="true"></span><li><a href="#challenge">Challenge</a></li><li><a href="#actions">Actions</a></li><li><a href="#results">Results</a></li></ol></nav>
+    <div>
+      <div class="part" id="challenge" data-reveal><h2><span>Challenge</span>The problem</h2><p>The hangout needed paid registration, proof of payment, and a way to keep the list and the messages in order. Doing that by hand would have meant chasing receipts, typing names into a sheet, and writing to people one by one.</p></div>
+      <div class="part" id="actions" data-reveal><h2><span>Actions</span>What I built</h2><p>I built a Lovable landing page and a registration form (email, full name, WhatsApp number, receipt upload). An n8n webhook received each submission, saved the receipt to Google Drive, logged a pending record in Airtable, and sent a registration-pending email.</p><p>Separate published workflows handled ticket approval and errors, including its own error workflow. On the day, each registered person got a personalised message with their name, the venue and the 2:00 PM time.</p></div>
+      <div class="part res" id="results" data-reveal><h2><span>Results</span>Where it stands</h2><p>The registration system went live and was used for the hangout. Over 45 people registered.</p><p>Receipts landed in Drive, registrations landed in Airtable with verification status and ticket price, and people received a personalised day-of message.</p></div>
+    </div>
+  </div>
+  <div class="gallery"><figure class="wide" data-reveal><div class="frame"><img src="/assets/work/hangout-landing.webp" alt="Landing page for the hangout built in Lovable, with a Continue button to the registration form." width="1400" height="604" loading="lazy" decoding="async"></div><figcaption>The landing page, built in Lovable.</figcaption></figure><figure class="wide" data-reveal><div class="frame"><img src="/assets/work/hangout-airtable.webp" alt="Airtable grid of registrations showing verification status, ticket price and ticket sent columns. Names, emails, phone numbers and receipts are blurred." width="1400" height="329" loading="lazy" decoding="async"></div><figcaption>Registrations in Airtable with verification status. A cropped view, not the full list.</figcaption></figure><figure data-reveal><div class="frame"><img src="/assets/work/hangout-form.webp" alt="Registration form for the hangout with payment instructions and fields for email, full name, WhatsApp number and receipt photo. Personal and account details are blurred." width="800" height="650" loading="lazy" decoding="async"></div><figcaption>The registration form. Personal and account details are blurred.</figcaption></figure><figure class="tall" data-reveal><div class="frame"><img src="/assets/work/hangout-dayof.webp" alt="Personalised day-of message to a registered guest with the venue, Andrew's Park, and the 2:00 PM time. The recipient's name is blurred." width="520" height="1126" loading="lazy" decoding="async"></div><figcaption>The personalised message each guest got on the day. Name blurred.</figcaption></figure></div>
+  <div class="notes-wrap" data-reveal><h2>Build notes on X</h2><div class="notes"><a href="https://x.com/_Edimoya/status/2093652318575067571" rel="noopener" target="_blank">Launch post, 29 Aug 2026<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://x.com/_Edimoya/status/2093653693421785320" rel="noopener" target="_blank">System breakdown, 29 Aug 2026<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a href="https://x.com/_Edimoya/status/2096534892200775874" rel="noopener" target="_blank">Personalised message, 6 Sep 2026<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div>
+  <a class="next" href="/projects/ai-os"><span>Next project</span><strong><em>RIIC Office AI Operating System</em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></strong></a>
+</div>
+</article>
+</main>
+<section class="contact sec" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div data-reveal>
+      <h2 id="contact-title">Got work your team does by hand every week?</h2>
+      <p>Tell me what it is and how it runs today. I'll tell you honestly whether it should be automated, and how.</p>
+    </div>
+    <ul class="links" data-reveal style="--d:.1s">
+      <li><a href="mailto:ibitoyeayomide087@gmail.com"><span>Email<small>ibitoyeayomide087@gmail.com</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><a href="https://www.linkedin.com/in/ayomide-ibitoye-b1a594445" rel="noopener" target="_blank"><span>LinkedIn<small>Ayomide Ibitoye</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><a href="https://x.com/_edimoya" rel="noopener" target="_blank"><span>X<small>@_Edimoya</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><a href="/cv.pdf" download="Ibitoye_Ayomide_Paul_CV.pdf"><span>Download CV<small>PDF, 56 KB</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+    </ul>
+  </div>
+</section>
+<footer class="foot dark">
+  <div class="wrap">
+    <strong>Ibitoye Ayomide Paul</strong>
+    <a href="mailto:ibitoyeayomide087@gmail.com">ibitoyeayomide087@gmail.com</a>
+    <a href="https://www.linkedin.com/in/ayomide-ibitoye-b1a594445" rel="noopener" target="_blank">LinkedIn</a>
+    <a href="https://x.com/_edimoya" rel="noopener" target="_blank">X</a>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
