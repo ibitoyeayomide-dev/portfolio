@@ -23,7 +23,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/bricolage-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=7168eaf1">
 <script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ibitoye Ayomide Paul","alternateName":"Ayomide Ibitoye","jobTitle":"AI Automation and Cloud Engineer","email":"mailto:ibitoyeayomide087@gmail.com","url":"https://ayomide-ibitoye.vercel.app/","sameAs":["https://www.linkedin.com/in/ayomide-ibitoye-b1a594445","https://x.com/_edimoya"],"alumniOf":"Clifford University"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What do you build?","acceptedAnswer":{"@type":"Answer","text":"AI agents, automated workflows and AI operating systems for teams that lose hours to repetitive work, like sorting an inbox, writing minutes, sending certificates or handling event sign-ups."}},{"@type":"Question","name":"Which tools do you work with?","acceptedAnswer":{"@type":"Answer","text":"n8n, Google Apps Script, Airtable and Google Workspace for the workflows. OpenRouter, DeepSeek and Ollama for the AI. Docker, Cloudflare Tunnel and Vercel to deploy and host it."}},{"@type":"Question","name":"Will the AI act without my team?","acceptedAnswer":{"@type":"Answer","text":"Not on anything that matters. I build so the AI does the sorting and drafting, and a person approves anything that goes out."}},{"@type":"Question","name":"Do you work remotely?","acceptedAnswer":{"@type":"Answer","text":"Yes. I'm open to remote roles and projects with teams anywhere."}},{"@type":"Question","name":"Are you open to full-time roles?","acceptedAnswer":{"@type":"Answer","text":"Yes. I'm open to AI automation roles, contract work and projects, and I'm available from January 2027."}},{"@type":"Question","name":"How do we get started?","acceptedAnswer":{"@type":"Answer","text":"Email me and describe the task that takes up your team's time. I'll reply with how I would automate it."}}]}</script>
@@ -43,7 +43,8 @@
     <div class="nav-end">
       <a class="btn btn--ink" href="mailto:ibitoyeayomide087@gmail.com">Email me</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
-        <span class="nav-toggle-bars" aria-hidden="true"><span></span></span>
+        <svg class="nav-toggle-icon nav-toggle-icon--menu" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>
+        <svg class="nav-toggle-icon nav-toggle-icon--close" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
   </div>
@@ -233,6 +234,41 @@
     <span>&copy; 2026</span>
   </div>
 </footer>
-<script src="/assets/site.js" defer></script>
+<script>
+(function(){
+  var nav = document.querySelector(".nav");
+  var toggle = document.querySelector(".nav-toggle");
+  var panel = document.getElementById("nav-menu");
+  if (!nav || !toggle || !panel || toggle.getAttribute("data-ready")) return;
+  toggle.setAttribute("data-ready", "1");
+  function setOpen(open) {
+    nav.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Menu");
+    panel.setAttribute("aria-hidden", open ? "false" : "true");
+    if (open) panel.removeAttribute("inert");
+    else panel.setAttribute("inert", "");
+  }
+  toggle.addEventListener("click", function(){
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+  panel.addEventListener("click", function(e){
+    if (e.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("click", function(e){
+    if (toggle.getAttribute("aria-expanded") === "true" && !e.target.closest(".nav")) setOpen(false);
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  addEventListener("resize", function(){
+    if (innerWidth > 720 && toggle.getAttribute("aria-expanded") === "true") setOpen(false);
+  });
+})();
+</script>
+<script src="/assets/site.js?v=2091d765" defer></script>
 </body>
 </html>

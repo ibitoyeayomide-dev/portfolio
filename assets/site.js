@@ -6,7 +6,8 @@
 
   const toggle = document.querySelector(".nav-toggle");
   const panel = document.getElementById("nav-menu");
-  if (toggle && panel && nav) {
+  if (toggle && panel && nav && !toggle.getAttribute("data-ready")) {
+    toggle.setAttribute("data-ready", "1");
     const setOpen = (open) => {
       nav.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");

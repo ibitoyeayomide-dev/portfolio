@@ -3,9 +3,13 @@
 // put its images in assets/work/, then run:  node tools/build.mjs
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const assetV = file => crypto.createHash("sha256").update(fs.readFileSync(path.join(ROOT, file))).digest("hex").slice(0, 8);
+const cssV = assetV("assets/site.css");
+const jsV = assetV("assets/site.js");
 const SITE = "https://ayomide-ibitoye.vercel.app";
 const YEAR = 2026;
 const projects = JSON.parse(fs.readFileSync(path.join(ROOT, "data/projects.json"), "utf8"));
@@ -46,7 +50,7 @@ const head = ({ title, desc, url, og, type = "website" }) => `<!doctype html>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/bricolage-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=${cssV}">
 <script>document.documentElement.classList.add("js")</script>
 `;
 
@@ -64,7 +68,8 @@ const nav = (home) => `<a class="skip" href="#main">Skip to content</a>
     <div class="nav-end">
       <a class="btn btn--ink" href="mailto:${EMAIL}">Email me</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
-        <span class="nav-toggle-bars" aria-hidden="true"><span></span></span>
+        <svg class="nav-toggle-icon nav-toggle-icon--menu" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>
+        <svg class="nav-toggle-icon nav-toggle-icon--close" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
   </div>
@@ -105,7 +110,42 @@ const footer = `<footer class="foot dark">
     <span>&copy; ${YEAR}</span>
   </div>
 </footer>
-<script src="/assets/site.js" defer></script>
+<script>
+(function(){
+  var nav = document.querySelector(".nav");
+  var toggle = document.querySelector(".nav-toggle");
+  var panel = document.getElementById("nav-menu");
+  if (!nav || !toggle || !panel || toggle.getAttribute("data-ready")) return;
+  toggle.setAttribute("data-ready", "1");
+  function setOpen(open) {
+    nav.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Menu");
+    panel.setAttribute("aria-hidden", open ? "false" : "true");
+    if (open) panel.removeAttribute("inert");
+    else panel.setAttribute("inert", "");
+  }
+  toggle.addEventListener("click", function(){
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+  panel.addEventListener("click", function(e){
+    if (e.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("click", function(e){
+    if (toggle.getAttribute("aria-expanded") === "true" && !e.target.closest(".nav")) setOpen(false);
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  addEventListener("resize", function(){
+    if (innerWidth > 720 && toggle.getAttribute("aria-expanded") === "true") setOpen(false);
+  });
+})();
+</script>
+<script src="/assets/site.js?v=${jsV}" defer></script>
 </body>
 </html>
 `;
