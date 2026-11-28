@@ -4,6 +4,33 @@
   const onScrollNav = () => nav && nav.classList.toggle("is-scrolled", scrollY > 8);
   addEventListener("scroll", onScrollNav, { passive: true }); onScrollNav();
 
+  const toggle = document.querySelector(".nav-toggle");
+  const panel = document.getElementById("nav-menu");
+  if (toggle && panel && nav) {
+    const setOpen = (open) => {
+      nav.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Menu");
+      panel.setAttribute("aria-hidden", open ? "false" : "true");
+      if (open) panel.removeAttribute("inert");
+      else panel.setAttribute("inert", "");
+    };
+    toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+    panel.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
+    document.addEventListener("click", (e) => {
+      if (toggle.getAttribute("aria-expanded") === "true" && !e.target.closest(".nav")) setOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    addEventListener("resize", () => {
+      if (innerWidth > 720 && toggle.getAttribute("aria-expanded") === "true") setOpen(false);
+    });
+  }
+
   // hero entrance
   const hero = document.querySelector(".hero");
   if (hero) requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add("is-ready")));

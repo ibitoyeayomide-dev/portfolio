@@ -27,9 +27,9 @@ p{margin:0}
 .nav .wrap{display:flex;align-items:center;gap:28px;height:68px}
 .brand{font:700 18px/1 var(--display);text-decoration:none;display:flex;align-items:center;gap:9px;letter-spacing:-.01em;margin-right:auto}
 .brand i{width:10px;height:10px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 2px var(--ink)}
-.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
-.nav ul a{text-decoration:none;font-size:15px;font-weight:600;color:var(--grey);transition:color .2s}
-.nav ul a:hover,.nav ul a[aria-current]{color:var(--ink)}
+.nav .wrap ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav .wrap ul a{text-decoration:none;font-size:15px;font-weight:600;color:var(--grey);transition:color .2s}
+.nav .wrap ul a:hover,.nav .wrap ul a[aria-current]{color:var(--ink)}
 .btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font:600 15px/1 var(--text);text-decoration:none;transition:transform .25s var(--ease),background-color .25s,color .25s;border:1.5px solid var(--ink);white-space:nowrap}
 .btn:hover{transform:translateY(-2px)}
 .btn--ink{background:var(--ink);color:var(--cream)}
@@ -318,7 +318,7 @@ figcaption{font-size:13.5px;color:var(--grey);margin-top:12px}
   .gallery figure.solo{grid-template-columns:1fr}
   .gallery figure.solo figcaption{margin-top:12px}
   body{font-size:16px}
-  .nav ul li.opt{display:none}
+  .nav .wrap ul li.opt{display:none}
   .nav .wrap{gap:18px;height:62px}
   .cards{grid-template-columns:1fr}
   .car div{grid-template-columns:1fr;gap:4px}
@@ -332,7 +332,7 @@ figcaption{font-size:13.5px;color:var(--grey);margin-top:12px}
   .flag-label{display:none}
 }
 @media (max-width:400px){
-  .nav ul{display:none}
+  .nav .wrap ul{display:none}
   .btn{padding:0 18px}
   .chip{left:-2%}
 }
@@ -380,3 +380,28 @@ figcaption{font-size:13.5px;color:var(--grey);margin-top:12px}
 .faq summary:focus-visible{outline:2px solid var(--olive);outline-offset:4px}
 .faq details p{margin:0 0 22px;font-size:17px;line-height:1.6;color:#2c2e28;max-width:40em}
 @media (prefers-reduced-motion:reduce){.faq summary::after{transition:none}}
+
+/* mobile menu */
+.nav-end{display:flex;align-items:center;gap:8px;flex:none}
+.nav-toggle{display:none;place-items:center;flex:none;width:42px;height:42px;padding:0;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;appearance:none;-webkit-appearance:none;font:inherit;transition:background-color .2s,color .2s,border-color .2s}
+.nav-toggle:hover,.nav-toggle[aria-expanded="true"]{background:var(--ink);color:var(--cream)}
+.nav-toggle-bars{position:relative;display:block;width:16px;height:12px}
+.nav-toggle-bars span,.nav-toggle-bars::before,.nav-toggle-bars::after{content:"";position:absolute;left:0;right:0;height:1.5px;border-radius:1px;background:currentColor;transition:transform .2s var(--ease),top .2s var(--ease),opacity .2s var(--ease)}
+.nav-toggle-bars::before{top:0}
+.nav-toggle-bars span{top:5.25px}
+.nav-toggle-bars::after{top:10.5px}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars::before{top:5.25px;transform:rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars span{opacity:0}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars::after{top:5.25px;transform:rotate(-45deg)}
+.nav-panel{display:none}
+@media (max-width:720px){
+  .nav .wrap>nav{display:none}
+  .nav-toggle{display:grid}
+  .nav-panel{display:block;position:absolute;left:0;right:0;top:100%;overflow:hidden;max-height:0;opacity:0;visibility:hidden;pointer-events:none;background:var(--paper);border-top:1px solid transparent;border-bottom:1px solid transparent;padding:0 var(--pad);box-shadow:none;transition:max-height .2s var(--ease),opacity .2s,visibility .2s,border-color .2s,padding .2s,box-shadow .2s}
+  .nav.is-open .nav-panel{max-height:360px;opacity:1;visibility:visible;pointer-events:auto;border-top-color:var(--line);border-bottom-color:var(--line);padding:8px var(--pad) 18px;box-shadow:0 18px 32px rgba(14,15,12,.08)}
+}
+.nav-panel ul{display:block;list-style:none;margin:0;padding:0}
+.nav-panel a{display:flex;align-items:center;min-height:52px;font:700 22px/1.25 var(--display);letter-spacing:-.02em;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
+.nav-panel li:last-child a{border-bottom:0}
+.nav-panel a:hover{color:var(--olive)}
+@media (prefers-reduced-motion:reduce){.nav-toggle-bars span,.nav-toggle-bars::before,.nav-toggle-bars::after,.nav-panel{transition:none}}

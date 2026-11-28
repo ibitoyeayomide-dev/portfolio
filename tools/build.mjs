@@ -61,7 +61,23 @@ const nav = (home) => `<a class="skip" href="#main">Skip to content</a>
         <li class="opt"><a href="/#about">About</a></li>
       </ul>
     </nav>
-    <a class="btn btn--ink" href="mailto:${EMAIL}">Email me</a>
+    <div class="nav-end">
+      <a class="btn btn--ink" href="mailto:${EMAIL}">Email me</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+        <span class="nav-toggle-bars" aria-hidden="true"><span></span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-panel" id="nav-menu" aria-hidden="true" inert>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="/#top">Home</a></li>
+        <li><a href="/#work">Projects</a></li>
+        <li><a href="/#events">Events</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+      </ul>
+    </nav>
   </div>
 </header>`;
 
